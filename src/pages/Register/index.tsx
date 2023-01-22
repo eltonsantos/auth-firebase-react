@@ -1,35 +1,30 @@
 import { useState } from "react";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../services/firebaseConfig";
 
-export function Login() {
+export function Register() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
 
-  function handleSignIn(e: any) {
+  function handleSignUp(e: any) {
     e.preventDefault();
-    signInWithEmailAndPassword(email, password);
+    createUserWithEmailAndPassword(email, password);
     navigate("/admin");
   }
 
   if (loading) {
     return <p>carregando...</p>;
   }
-
-  if (user) {
-    return console.log(user);
-  }
-
   return (
     <div className="container">
       <header className="header">
-        <h1>Login</h1>
-        <span>Por favor digite suas informações de login</span>
+        <h1>Registro</h1>
+        <span>Por favor digite suas informações de cadastro</span>
       </header>
 
       <form>
@@ -55,14 +50,12 @@ export function Login() {
           />
         </div>
 
-        <a href="#">Esqueceu sua senha ?</a>
-
-        <button className="button" onClick={handleSignIn}>
-          Entrar
+        <button onClick={handleSignUp} className="button">
+          Register
         </button>
         <div className="footer">
-          <p>Você não tem uma conta?</p>
-          <Link to="/register">Crie a sua conta aqui</Link>
+          <p>Você já tem uma conta?</p>
+          <Link to="/">Acesse sua conta aqui</Link>
         </div>
       </form>
     </div>
