@@ -1,10 +1,11 @@
 import { Navigate, Outlet } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
+import { auth } from "../services/firebaseConfig";
 
 export function PrivateRoutes() {
-  //let auth = {'token':true}
-  const auth = localStorage.getItem("@auth:logged");
+  const user = useAuth();
 
-  console.log(auth);
+  console.log("/////user autheticated", user);
 
   return auth ? <Outlet /> : <Navigate to="/" />;
 }
