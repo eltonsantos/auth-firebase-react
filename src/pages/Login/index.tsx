@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { auth } from "../../services/firebaseConfig";
 
 export function Login() {
@@ -15,14 +15,6 @@ export function Login() {
     e.preventDefault();
     signInWithEmailAndPassword(email, password);
     navigate("/admin");
-  }
-
-  if (loading) {
-    return <p>carregando...</p>;
-  }
-
-  if (user) {
-    return console.log(user);
   }
 
   return (
@@ -60,10 +52,6 @@ export function Login() {
         <button className="button" onClick={handleSignIn}>
           Entrar
         </button>
-        <div className="footer">
-          <p>Você não tem uma conta?</p>
-          <Link to="/register">Crie a sua conta aqui</Link>
-        </div>
       </form>
     </div>
   );

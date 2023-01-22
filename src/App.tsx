@@ -10,16 +10,14 @@ export function App() {
   return (
     <Router>
       <Routes>
+        <Route element={<PrivateRoutes />}>
+          <Route element={<Dashboard />} path="/dashboard" />
+          <Route element={<Admin />} path="/admin" />
+        </Route>
+
         <Route element={<Home />} path="/" />
         <Route element={<Login />} path="/login" />
-
-        <Route>
-          <Route element={<PrivateRoutes />}>
-            <Route element={<Dashboard />} path="/dashboard" />
-            <Route element={<Admin />} path="/admin" />
-            <Route element={<Register />} path="/register" />
-          </Route>
-        </Route>
+        <Route element={<Register />} path="/register" />
       </Routes>
     </Router>
   );
