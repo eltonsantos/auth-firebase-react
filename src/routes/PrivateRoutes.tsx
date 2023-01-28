@@ -6,5 +6,5 @@ export function PrivateRoutes() {
 
   console.log("/////User autheticated", user);
 
-  return user == "undefined" || null ? <Outlet /> : <Navigate to="/" />;
+  return user == "undefined" || null ? <Outlet /> : <Navigate to="/login" />;
 }

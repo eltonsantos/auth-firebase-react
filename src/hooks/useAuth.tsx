@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { auth } from "../services/firebaseConfig";
 
 export function useAuth() {
-  //
   const [currentUser, setCurrentUser] = useState<any>();
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (user: any) =>

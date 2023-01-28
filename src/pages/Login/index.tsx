@@ -14,6 +14,7 @@ export function Login() {
   function handleSignIn(e: any) {
     e.preventDefault();
     signInWithEmailAndPassword(email, password);
+
     navigate("/admin");
   }
 

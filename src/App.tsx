@@ -12,12 +12,12 @@ export function App() {
       <Routes>
         <Route element={<PrivateRoutes />}>
           <Route element={<Dashboard />} path="/dashboard" />
+          <Route element={<Register />} path="/register" />
           <Route element={<Admin />} path="/admin" />
+          <Route element={<Home />} path="/" />
         </Route>
 
-        <Route element={<Home />} path="/" />
         <Route element={<Login />} path="/login" />
-        <Route element={<Register />} path="/register" />
       </Routes>
     </Router>
   );

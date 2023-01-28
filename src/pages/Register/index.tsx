@@ -20,6 +20,7 @@ export function Register() {
   if (loading) {
     return <p>carregando...</p>;
   }
+  
   return (
     <div className="container">
       <header className="header">
